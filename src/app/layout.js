@@ -42,10 +42,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${robotoSlab.variable} ${bebasNeue.variable} h-full`}
+      className={`${robotoSlab.variable} ${bebasNeue.variable} m-0 h-full p-0`}
       data-scroll-behavior="smooth"
     >
-      <body className="flex min-h-full flex-col bg-slate-100 text-slate-900 antialiased">
+      <body className="m-0 flex min-h-full flex-col bg-slate-100 p-0 text-slate-900 antialiased">
         <MotionRoot>
           <SiteHeader />
           {/* Bottom padding clears fixed dock (<lg) without leaving a large visible gap. */}
