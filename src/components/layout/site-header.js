@@ -67,7 +67,7 @@ function SiteHeaderInner() {
           isHome
             ? homeBarSolid
               ? "sticky top-0 z-[300] isolate border-b border-white/[0.07] bg-[#070b14] pt-[env(safe-area-inset-top,0px)] [transform:translateZ(0)] transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out max-md:backdrop-blur-none md:bg-[#070b14]/90 md:backdrop-blur-xl"
-              : "sticky top-0 z-[300] isolate border-b border-transparent bg-transparent pt-[env(safe-area-inset-top,0px)] shadow-none backdrop-blur-none [transform:translateZ(0)] transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out"
+              : "sticky top-0 z-[300] isolate b bg-transparent pt-[env(safe-area-inset-top,0px)] shadow-none backdrop-blur-none [transform:translateZ(0)] transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out"
             : "sticky top-0 z-[300] isolate relative border-b border-slate-200/80 bg-white pt-[env(safe-area-inset-top,0px)] shadow-sm shadow-slate-900/[0.04] [transform:translateZ(0)] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-[1] after:h-px after:bg-gradient-to-r after:from-transparent after:via-[#0033a0]/22 after:to-transparent max-md:backdrop-blur-none md:bg-white/95 md:backdrop-blur-xl"
         }
       >
@@ -155,7 +155,9 @@ function SiteHeaderInner() {
                   />
                 ))}
               </span>
-              <span className="relative z-10 font-heading tracking-wide">Explore</span>
+              <span className="relative z-10 font-heading tracking-wide">
+                Explore
+              </span>
             </button>
           </div>
         </div>
@@ -168,7 +170,11 @@ function SiteHeaderInner() {
         theme={exploreTheme}
       />
 
-      <MobileNavDock isHome={isHome} exploreOpen={open} onOpenExplore={openExplore} />
+      <MobileNavDock
+        isHome={isHome}
+        exploreOpen={open}
+        onOpenExplore={openExplore}
+      />
     </>
   );
 }
