@@ -8,24 +8,26 @@ export default function RegistrationFeesPage() {
   return (
     <DocumentPage title="Registration fees" eyebrow="Attend">
       <p>
-        Official fee schedules for ICAMI 2026 will be published when registration
-        opens. Rates typically differentiate authors, students, and non-author
-        attendees; early-bird windows may apply.
+        ICAMI 2026 registration is planned in two windows: standard and late.
+        Pricing below reflects the current fee framework and may be refined with
+        final policy notes at portal launch.
       </p>
 
-      <h2>Planned categories</h2>
+      <h2>Registration fee matrix (USD)</h2>
       <ul>
         <li>
-          <strong>Author</strong> — includes proceedings access and main program
-          sessions as announced.
+          <strong>International (non-IEEE)</strong> — <strong>$350</strong> standard,
+          <strong> $450</strong> late.
         </li>
         <li>
-          <strong>Student</strong> — reduced rate subject to valid student
-          verification at check-in or as specified during payment.
+          <strong>Bangladesh participants</strong> — approximately
+          <strong> $120-$150</strong> standard, around <strong>$250</strong> late
+          (final category brackets will be published in the portal).
         </li>
         <li>
-          <strong>Listener / non-author</strong> — access to sessions and
-          materials according to the published program tier.
+          <strong>Other categories</strong> (e.g., students, IEEE members,
+          listeners/workshop-only) will be aligned to this charge framework and
+          listed with exact amounts at registration opening.
         </li>
       </ul>
 
@@ -38,9 +40,8 @@ export default function RegistrationFeesPage() {
 
       <h2>What to expect next</h2>
       <p>
-        Once fees and deadlines are confirmed, this page will show exact
-        amounts, cut-off dates for early registration, and any bundled options
-        (e.g., workshops). See also{" "}
+        The portal will publish exact category definitions (author/student/listener),
+        IEEE discount policy if applicable, and workshop bundling options. See also{" "}
         <a className="icami-inline-link" href="/registration/guidelines">
           Registration guidelines
         </a>{" "}
