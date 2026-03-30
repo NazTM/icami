@@ -145,7 +145,13 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="relative border-t border-white/[0.04] px-5 py-7 text-center text-xs sm:px-10 md:px-14">
-          <p className="text-zinc-700">© 2026 ICAMI. All rights reserved.</p>
+          <p className="text-zinc-500">
+            © 2026{" "}
+            <strong className="text-icami-blue hover:text-icami-blue-muted cursor-pointer hover:underline">
+              ICAMI
+            </strong>
+            . All rights reserved.
+          </p>
           <FooterDeveloperCredit tone="dark" />
         </div>
       </footer>
