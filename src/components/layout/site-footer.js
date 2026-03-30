@@ -41,6 +41,19 @@ function FooterDeveloperCredit({ tone }) {
         </a>
         .
       </p>
+      <p className={`mt-3 text-[0.75rem] sm:text-xs ${body}`}>
+        This website is open source. Contributions, improvements, and feedback
+        are welcome via{" "}
+        <a
+          href="https://github.com/tesla1618/icami"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClass}
+        >
+          GitHub
+        </a>
+        .
+      </p>
     </div>
   );
 }
