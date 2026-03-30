@@ -10,9 +10,9 @@ export default function ImportantDatesPage() {
   return (
     <DocumentPage title="Important dates" eyebrow="Plan ahead">
       <p>
-        Official <HighlightBrush variant="sky">deadlines</HighlightBrush> will be posted
-        here and communicated via the conference mailing list. Until announced, dates
-        below are placeholders.
+        Official <HighlightBrush variant="sky">deadlines</HighlightBrush> for ICAMI
+        2026 are listed below. Month-level dates are currently published; exact day
+        cutoffs and timestamps will be shared with the submission system notice.
       </p>
       <ol className="mt-10 space-y-6">
         {importantDates.map((row, i) => (
