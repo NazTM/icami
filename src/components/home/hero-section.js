@@ -5,12 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroSpotlight } from "@/components/home/hero-spotlight";
 import { MalaysiaHeroAmbience } from "@/components/home/malaysia-hero-ambience";
-import { staggerContainer, springSnappy } from "@/components/motion/transitions";
+import {
+  staggerContainer,
+  springSnappy,
+} from "@/components/motion/transitions";
 import { site } from "@/config/site";
 import { useRef } from "react";
 
-const heroTopPad =
-  "pt-[calc(2rem+4rem+env(safe-area-inset-top,0px))]";
+const heroTopPad = "pt-[calc(2rem+4rem+env(safe-area-inset-top,0px))]";
 
 const MARQUEE =
   "Applied machine intelligence · MMU · Malaysia · Systems that ship · ICAMI · Neural + real world · Deployed models · ";
@@ -22,7 +24,10 @@ const chamfer =
 function HudFrame() {
   const arm = "absolute h-5 w-5 border-white/25 sm:h-6 sm:w-6";
   return (
-    <div className="pointer-events-none absolute inset-2 z-[2] sm:inset-4 md:inset-6" aria-hidden>
+    <div
+      className="pointer-events-none absolute inset-2 z-[2] sm:inset-4 md:inset-6"
+      aria-hidden
+    >
       <span className={`${arm} left-0 top-0 border-l-2 border-t-2`} />
       <span className={`${arm} right-0 top-0 border-r-2 border-t-2`} />
       <span className={`${arm} bottom-0 left-0 border-b-2 border-l-2`} />
@@ -122,7 +127,10 @@ export function HeroSection() {
               className="pointer-events-none absolute -inset-3 rounded-sm border border-dashed border-white/10 sm:-inset-4"
               aria-hidden
             />
-            <div className="pointer-events-none absolute -left-1 top-1/2 h-3 w-px -translate-y-1/2 bg-amber-400/60" aria-hidden />
+            <div
+              className="pointer-events-none absolute -left-1 top-1/2 h-3 w-px -translate-y-1/2 bg-amber-400/60"
+              aria-hidden
+            />
             <Image
               src="/icami.png"
               alt={`${site.shortTitle} logo`}
@@ -138,9 +146,14 @@ export function HeroSection() {
         <div className="flex flex-1 flex-col justify-end pb-6 md:justify-center md:pb-10 lg:max-w-[min(100%,36rem)] lg:justify-end lg:pb-16 xl:max-w-[38rem]">
           <motion.div variants={item} className="relative">
             <div className="mb-4 flex items-stretch gap-3 sm:mb-5">
-              <div className="w-1 shrink-0 bg-gradient-to-b from-amber-400 via-sky-400 to-transparent opacity-90" aria-hidden />
+              <div
+                className="w-1 shrink-0 bg-gradient-to-b from-amber-400 via-sky-400 to-transparent opacity-90"
+                aria-hidden
+              />
               <div className="min-w-0 pt-0.5">
-                <p className="font-mono text-[0.65rem] text-amber-200/55">index 01</p>
+                <p className="font-mono text-[0.65rem] text-amber-200/55">
+                  index 01
+                </p>
                 <p className="mt-1 max-w-sm text-[0.68rem] font-semibold uppercase leading-snug tracking-[0.22em] text-zinc-400 sm:text-[0.7rem] sm:tracking-[0.26em]">
                   {site.fullTitle}
                 </p>
@@ -177,7 +190,7 @@ export function HeroSection() {
             <span
               className={`inline-flex items-center justify-center border border-dashed border-white/15 bg-black/25 px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-zinc-500 backdrop-blur-sm sm:py-3.5 ${chamfer}`}
             >
-              [ dates TBA ]
+              [ December 2026 ]
             </span>
           </div>
 
