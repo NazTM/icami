@@ -72,8 +72,30 @@ export default function VenuePage() {
       </p>
       <h2>Maps</h2>
       <p>
-        Campus maps and venue room assignments will be linked once the program
-        is fixed.
+        Use the map below for direct navigation to Multimedia University (MMU),
+        Malaysia. Detailed room-level maps and assignments will be added closer
+        to the program release.
+      </p>
+      <div className="icami-chamfer-panel mt-6 overflow-hidden border border-slate-200/90 bg-white p-2">
+        <iframe
+          title="Map to Multimedia University (MMU), Malaysia"
+          src="https://www.google.com/maps?q=Multimedia+University+Melaka&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="h-[24rem] w-full border-0"
+        />
+      </div>
+      <p className="mt-3 text-sm text-slate-600">
+        Prefer opening in the Maps app?{" "}
+        <a
+          className="icami-inline-link"
+          href="https://www.google.com/maps/search/?api=1&query=Multimedia+University+Melaka"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open MMU in Google Maps
+        </a>
+        .
       </p>
     </DocumentPage>
   );
