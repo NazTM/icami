@@ -1,26 +1,626 @@
 @import "tailwindcss";
 
+/*
+  ICAMI 2026 — brand tokens (Malaysian palette: deep blue, white, gold accent, flag red sparingly).
+  Typography: Roboto Slab (body), Bebas Neue (headings).
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --icami-ink: #02040c;
+  --icami-ink-deep: #010208;
+  --icami-blue: #0033a0;
+  --icami-blue-bright: #1e5cff;
+  --icami-blue-muted: #0a1744;
+  --icami-gold: #c9a227;
+  --icami-gold-dim: #a28222;
+  --icami-red: #c8102e;
+  --icami-surface: #eef1f6;
+  --icami-surface-elevated: #ffffff;
+  --icami-text: #12151c;
+  --icami-text-muted: #4a5160;
+  --icami-border: #d8dde8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-icami-ink: var(--icami-ink);
+  --color-icami-blue: var(--icami-blue);
+  --color-icami-blue-muted: var(--icami-blue-muted);
+  --color-icami-gold: var(--icami-gold);
+  --color-icami-red: var(--icami-red);
+  --color-icami-surface: var(--icami-surface);
+  --color-icami-surface-elevated: var(--icami-surface-elevated);
+  --color-icami-text: var(--icami-text);
+  --color-icami-text-muted: var(--icami-text-muted);
+  --color-icami-border: var(--icami-border);
+  --font-sans: var(--font-roboto-slab), ui-serif, Georgia, serif;
+  --font-heading: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Native explore menu <dialog> — ::backdrop is reliable across WebKit + Chromium */
+/*
+ * Closed dialogs have no [open] attribute; the UA uses display:none, but Tailwind's
+ * `flex` utility wins and leaves the panel on-screen. Force hidden when closed.
+ */
+.icami-explore-dialog:not([open]) {
+  display: none !important;
+}
+
+/* Open state: kill UA dialog margins/size quirks so flex centering works on desktop */
+.icami-explore-dialog[open] {
+  margin: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.icami-explore-dialog::backdrop {
+  background: rgb(15 23 42 / 0.82);
+}
+
+@media (min-width: 768px) {
+  .icami-explore-dialog::backdrop {
+    background: linear-gradient(
+      165deg,
+      rgb(15 23 42 / 0.88) 0%,
+      rgb(30 41 59 / 0.82) 45%,
+      rgb(15 23 42 / 0.9) 100%
+    );
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    backdrop-filter: blur(14px) saturate(1.15);
+  }
+}
+
+/* Hide scrollbars where we use horizontal nav (still scrollable / swipeable) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes icami-dropdown {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: icami-dropdown 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-dropdown {
+    animation: none;
+  }
+  .icami-card:hover {
+    transform: none;
+  }
+}
+
+.icami-btn-primary {
+  background: linear-gradient(to right, #0d4bd1, #0033a0, #002878);
+  color: #fff;
+  box-shadow: 0 12px 40px -8px rgba(0, 51, 160, 0.55);
+  transition:
+    box-shadow 0.25s ease,
+    filter 0.25s ease,
+    transform 0.2s ease;
+}
+.icami-btn-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 16px 48px -6px rgba(30, 92, 255, 0.45);
+}
+.icami-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.icami-btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  backdrop-filter: blur(12px);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.2s ease;
+}
+.icami-btn-secondary:hover {
+  border-color: rgba(251, 191, 36, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+}
+.icami-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icami-btn-primary,
+  .icami-btn-secondary:active {
+    transform: none;
+  }
+}
+
+/* --- Highlight brush: inline marker for key terms in body copy (<HighlightBrush />) --- */
+.icami-highlight-brush {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.1em 0.26em 0.14em 0.2em;
+  margin-inline: -0.03em;
+  border-radius: 0.15em 0.48em 0.22em 0.38em;
+  line-height: 1.35;
+}
+
+.icami-highlight-brush--amber {
+  background: linear-gradient(
+    101deg,
+    rgba(253, 230, 138, 0.58) 0%,
+    rgba(251, 191, 36, 0.52) 38%,
+    rgba(252, 211, 77, 0.48) 72%,
+    rgba(245, 158, 11, 0.44) 100%
+  );
+  color: var(--icami-text);
+}
+
+.icami-highlight-brush--sky {
+  background: linear-gradient(
+    98deg,
+    rgba(186, 230, 253, 0.68) 0%,
+    rgba(125, 211, 252, 0.52) 45%,
+    rgba(56, 189, 248, 0.42) 100%
+  );
+  color: var(--icami-text);
+}
+
+.icami-highlight-brush--gold {
+  background: linear-gradient(
+    104deg,
+    rgba(253, 224, 71, 0.48) 0%,
+    rgba(234, 179, 8, 0.44) 50%,
+    rgba(202, 138, 4, 0.4) 100%
+  );
+  color: var(--icami-text);
+}
+
+.icami-highlight-brush--rose {
+  background: linear-gradient(
+    100deg,
+    rgba(254, 202, 202, 0.58) 0%,
+    rgba(251, 113, 133, 0.38) 100%
+  );
+  color: var(--icami-text);
+}
+
+.icami-highlight-brush--on-dark {
+  background: linear-gradient(
+    103deg,
+    rgba(56, 189, 248, 0.3) 0%,
+    rgba(251, 191, 36, 0.34) 48%,
+    rgba(125, 211, 252, 0.24) 100%
+  );
+  color: #f8fafc;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Atmosphere & utilities (hero strip on homepage only) --- */
+
+.icami-hero-atmosphere {
+  position: relative;
+  isolation: isolate;
+}
+
+/*
+ * Malaysian atmosphere (abstract): strait & rainforest dusk, songket gold, flag-whisper crimson.
+ * No literal flag — colour memory + textile/light motifs only.
+ */
+.icami-hero-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    /* Teal-emerald depth — sea / mangrove / tropical night */
+    radial-gradient(
+      ellipse 95% 55% at 50% 108%,
+      rgba(0, 105, 92, 0.22),
+      transparent 58%
+    ),
+    /* Soft crimson bloom — Jalur red as warmth, not geometry */
+    radial-gradient(
+      ellipse 38% 42% at 88% 18%,
+      rgba(200, 16, 46, 0.09),
+      transparent 58%
+    ),
+    /* Royal gold haze — songket / prosperity */
+    radial-gradient(
+      ellipse 55% 45% at 72% 28%,
+      rgba(201, 162, 39, 0.16),
+      transparent 52%
+    ),
+    /* Deep Jalur blue — corner anchor */
+    radial-gradient(
+      ellipse 50% 48% at 8% 92%,
+      rgba(0, 51, 160, 0.32),
+      transparent 55%
+    ),
+    /* Crown of sky blue */
+    radial-gradient(
+      ellipse 100% 80% at 50% -32%,
+      rgba(30, 92, 255, 0.34),
+      transparent 56%
+    ),
+    /* Base night ink */
+    radial-gradient(ellipse 120% 100% at 50% 50%, #02040c 0%, transparent 72%);
+}
+
+.icami-hero-songket {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      48deg,
+      transparent,
+      transparent 10px,
+      rgba(201, 162, 39, 0.035) 10px,
+      rgba(201, 162, 39, 0.035) 11px
+    ),
+    repeating-linear-gradient(
+      -42deg,
+      transparent,
+      transparent 16px,
+      rgba(255, 255, 255, 0.022) 16px,
+      rgba(255, 255, 255, 0.022) 17px
+    );
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 42%, black 0%, transparent 78%);
+  opacity: 0.95;
+}
+
+.icami-hero-fireflies {
+  background-image:
+    radial-gradient(circle 2.5px at 12% 78%, rgba(251, 191, 36, 0.45), transparent 3px),
+    radial-gradient(circle 2px at 28% 62%, rgba(167, 243, 208, 0.35), transparent 2.5px),
+    radial-gradient(circle 2px at 72% 55%, rgba(251, 191, 36, 0.4), transparent 2.5px),
+    radial-gradient(circle 1.5px at 88% 70%, rgba(147, 197, 253, 0.35), transparent 2px),
+    radial-gradient(circle 2px at 45% 88%, rgba(251, 191, 36, 0.3), transparent 2.5px),
+    radial-gradient(circle 1.5px at 55% 40%, rgba(167, 243, 208, 0.25), transparent 2px),
+    radial-gradient(circle 1.5px at 92% 42%, rgba(251, 191, 36, 0.22), transparent 2px);
+  opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icami-hero-batik-waves {
+    opacity: 0.08 !important;
+  }
+}
+
+.icami-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black 25%, transparent 95%);
+  opacity: 0.85;
+}
+
+.icami-hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 40%,
+    transparent 30%,
+    rgba(1, 2, 8, 0.75) 100%
+  );
+}
+
+/* Kinetic type strip — homepage hero marquee */
+@keyframes icami-hero-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.icami-hero-marquee {
+  mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+}
+
+.icami-hero-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  animation: icami-hero-marquee 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icami-hero-marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
+
+.icami-accent-bar {
+  background: linear-gradient(
+    180deg,
+    var(--icami-blue-bright) 0%,
+    var(--icami-blue) 45%,
+    var(--icami-gold) 100%
+  );
+  box-shadow: 0 0 20px rgba(30, 92, 255, 0.35);
+  min-height: 2.75rem;
+}
+
+/* Light shell — chamfers + editorial tech (pairs with dark hero) */
+.icami-chamfer {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+}
+
+.icami-chamfer-panel {
+  clip-path: polygon(
+    0 16px,
+    16px 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%
+  );
+}
+
+.icami-accent-bar-light {
+  width: 3px;
+  min-height: 3rem;
+  align-self: stretch;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--icami-blue-bright) 0%,
+    var(--icami-blue) 42%,
+    var(--icami-gold) 100%
+  );
+  box-shadow: 0 0 14px rgba(30, 92, 255, 0.2);
+}
+
+.icami-mono-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgb(100 116 139 / 0.95);
+}
+
+.icami-btn-chamfer {
+  border-radius: 0;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+}
+
+.icami-btn-primary-on-light {
+  background: linear-gradient(to right, #0d4bd1, #0033a0, #002878);
+  color: #fff;
+  box-shadow: 0 10px 36px -10px rgba(0, 51, 160, 0.45);
+  transition:
+    box-shadow 0.25s ease,
+    filter 0.25s ease,
+    transform 0.2s ease;
+}
+
+.icami-btn-primary-on-light:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 14px 44px -8px rgba(30, 92, 255, 0.4);
+}
+
+.icami-btn-ghost-on-light {
+  border-radius: 0;
+  border: 1px solid rgb(203 213 225 / 0.95);
+  background: rgb(255 255 255 / 0.65);
+  color: var(--icami-text);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.icami-btn-ghost-on-light:hover {
+  border-color: rgb(56 189 248 / 0.45);
+  background: rgb(248 250 252 / 0.95);
+  color: var(--icami-blue);
+}
+
+.icami-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--icami-blue);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.icami-inline-link-caps {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.icami-inline-link:hover {
+  color: var(--icami-blue-bright);
+}
+
+.icami-inline-link:hover .icami-inline-link-arrow {
+  transform: translateX(3px);
+}
+
+.icami-inline-link-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.icami-card {
+  border-radius: 0;
+  border: 1px solid rgba(0, 51, 160, 0.12);
+  background: linear-gradient(
+    152deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(244, 247, 252, 1) 100%
+  );
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 14px 44px -18px rgba(0, 51, 160, 0.16);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.25s ease;
+}
+
+.icami-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 51, 160, 0.26);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 1) inset,
+    0 20px 52px -14px rgba(0, 51, 160, 0.26);
+}
+
+.icami-card-highlight {
+  border-color: rgba(201, 162, 39, 0.35);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 252, 245, 1) 0%,
+    rgba(255, 255, 255, 1) 55%
+  );
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.12),
+    0 16px 48px -14px rgba(201, 162, 39, 0.22);
+}
+
+.icami-card-highlight:hover {
+  border-color: rgba(201, 162, 39, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.15),
+    0 22px 52px -12px rgba(201, 162, 39, 0.28);
+}
+
+/* Prose-like defaults inside content panels */
+/* Inner pages: anchor scroll under sticky header + in-page find highlight */
+.icami-doc-body h2,
+.icami-doc-body h3 {
+  scroll-margin-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+}
+
+.icami-doc-match-active {
+  outline: 2px solid rgba(30, 92, 255, 0.42);
+  outline-offset: 3px;
+  border-radius: 2px;
+  transition: outline 0.15s ease;
+}
+
+.icami-prose p {
+  margin-bottom: 1.35rem;
+  line-height: 1.8;
+  color: var(--icami-text-muted);
+}
+
+.icami-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.icami-prose h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--icami-text);
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.icami-prose h2:first-child {
+  margin-top: 0;
+}
+
+.icami-prose ul {
+  list-style: disc;
+  padding-left: 1.35rem;
+  margin-bottom: 1.25rem;
+  color: var(--icami-text-muted);
+  line-height: 1.75;
+}
+
+.icami-prose.prose-breathe li + li {
+  margin-top: 0.5rem;
 }
