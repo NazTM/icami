@@ -1,0 +1,17 @@
+import { DocumentPage } from "@/components/page/document-page";
+
+export const metadata = {
+  title: "Workshops & Tutorials",
+};
+
+export default function WorkshopsPage() {
+  return (
+    <DocumentPage title="Workshops & tutorials" eyebrow="Program">
+      <p>
+        Co-located workshops and tutorials may be scheduled before or alongside
+        the main conference. Calls for workshop proposals and tutorial
+        expressions of interest will be announced separately.
+      </p>
+    </DocumentPage>
+  );
+}
