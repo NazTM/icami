@@ -8,13 +8,15 @@ import { MobileNavDock } from "@/components/layout/mobile-nav-dock";
 import { NavigationOverlay } from "@/components/layout/navigation-overlay";
 import { navGroups, site } from "@/config/site";
 
+function isLinkActive(pathname, href) {
+  if (href === "/") return pathname === "/";
+  // Special-case registration tree: only exact match, children own their path.
+  if (href === "/registration") return pathname === "/registration";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 function NavDropdown({ label, links, pathname }) {
-  const hasActive = links.some(
-    (l) =>
-      l.href === "/"
-        ? pathname === "/"
-        : pathname === l.href || pathname.startsWith(`${l.href}/`),
-  );
+  const hasActive = links.some((l) => isLinkActive(pathname, l.href));
 
   return (
     <div className="group relative">
@@ -41,10 +43,7 @@ function NavDropdown({ label, links, pathname }) {
       <div className="pointer-events-none absolute right-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
         <div className="animate-dropdown min-w-[220px] rounded-lg border border-slate-200/90 bg-white/98 py-2 shadow-xl shadow-slate-900/[0.08] backdrop-blur-xl">
           {links.map((l) => {
-            const active =
-              l.href === "/"
-                ? pathname === "/"
-                : pathname === l.href || pathname.startsWith(`${l.href}/`);
+            const active = isLinkActive(pathname, l.href);
             return (
               <Link
                 key={l.href}
