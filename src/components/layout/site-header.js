@@ -36,7 +36,11 @@ function NavDropdown({ label, links, pathname }) {
           stroke="currentColor"
           strokeWidth={2.5}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+          />
         </svg>
       </button>
 
@@ -178,6 +182,16 @@ function SiteHeaderInner() {
                 pathname={pathname}
               />
             ))}
+            <Link
+              href="/contact"
+              className={`cursor-pointer rounded-full px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-wider transition ${
+                pathname === "/contact" || pathname.startsWith("/contact/")
+                  ? "text-icami-blue"
+                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+              }`}
+            >
+              Contact
+            </Link>
           </nav>
         </div>
       </header>
@@ -189,10 +203,7 @@ function SiteHeaderInner() {
         theme={exploreTheme}
       />
 
-      <MobileNavDock
-        exploreOpen={open}
-        onOpenExplore={openExplore}
-      />
+      <MobileNavDock exploreOpen={open} onOpenExplore={openExplore} />
     </>
   );
 }
