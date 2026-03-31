@@ -5,6 +5,7 @@ import { AboutSection } from "@/components/home/about-section";
 import { ConferenceHighlights } from "@/components/home/conference-highlights";
 import { DatesSection } from "@/components/home/dates-section";
 import { KeynotesPreview } from "@/components/home/keynotes-preview";
+import { AnnouncementsPreview } from "@/components/home/announcements-preview";
 import { SponsorsSection } from "@/components/home/sponsors-section";
 import { TracksPreview } from "@/components/home/tracks-preview";
 import { VenuePreview } from "@/components/home/venue-preview";
@@ -26,7 +27,7 @@ function SectionMotion({ children }) {
   );
 }
 
-export function HomePageClient() {
+export function HomePageClient({ announcements }) {
   return (
     <HomeContentSheet className="-mt-10 relative z-10">
       <div className="flex flex-col gap-24 md:gap-32">
@@ -38,6 +39,9 @@ export function HomePageClient() {
         </SectionMotion>
         <SectionMotion>
           <DatesSection />
+        </SectionMotion>
+        <SectionMotion>
+          <AnnouncementsPreview items={announcements} />
         </SectionMotion>
         <SectionMotion>
           <TracksPreview />
