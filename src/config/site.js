@@ -51,6 +51,7 @@ export const importantDates = [
 /** Primary navigation (always visible on large screens). */
 export const navPrimary = [
   { href: "/", label: "Home" },
+  { href: "/announcements", label: "Announcements" },
   { href: "/call-for-papers", label: "Call for Papers" },
   { href: "/tracks", label: "Tracks" },
   { href: "/submission", label: "Submission" },
@@ -61,6 +62,7 @@ export const navPrimary = [
   { href: "/registration", label: "Registration" },
   { href: "/venue", label: "Venue" },
   { href: "/sponsors", label: "Sponsors" },
+  { href: "/contact", label: "Contact" },
 ];
 
 /** Secondary — grouped under “More” to keep the bar calm. */
@@ -84,6 +86,7 @@ export const navGroups = [
     title: "Authors & submissions",
     description: "From the call for papers through camera-ready files and how you present.",
     links: [
+      { href: "/announcements", label: "Announcements" },
       { href: "/call-for-papers", label: "Call for Papers" },
       { href: "/tracks", label: "Tracks" },
       { href: "/submission", label: "Submission" },
@@ -121,6 +124,7 @@ export const navGroups = [
       { href: "/organizing-committee", label: "Organizing Committee" },
       { href: "/faq", label: "FAQ" },
       { href: "/code-of-conduct", label: "Code of Conduct" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ];
