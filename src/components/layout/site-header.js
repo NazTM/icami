@@ -251,7 +251,7 @@ function SiteHeaderInner() {
                 alt=""
                 width={70}
                 height={70}
-                className="h-9 w-9 shrink-0 object-contain sm:h-16 sm:w-16"
+                className="h-24 w-24 shrink-0 object-contain"
                 priority
               />
             </Link>
