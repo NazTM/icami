@@ -1,4 +1,5 @@
 import { DocumentPage } from "@/components/page/document-page";
+import { RegistrationFeeCalculator } from "@/components/registration/fees-calculator";
 
 export const metadata = {
   title: "Registration fees",
@@ -8,48 +9,69 @@ export default function RegistrationFeesPage() {
   return (
     <DocumentPage title="Registration fees" eyebrow="Attend">
       <p>
-        ICAMI 2026 registration is planned in two windows: standard and late.
-        Pricing below reflects the current fee framework and may be refined with
-        final policy notes at portal launch.
+        ICAMI 2026 uses a baseline registration fee and applies policy discounts
+        transparently by eligibility. This page documents the current structure,
+        with a live calculator to estimate your exact payable amount.
       </p>
 
-      <h2>Registration fee matrix (USD)</h2>
+      <h2>Base fee (USD)</h2>
       <ul>
         <li>
-          <strong>International (non-IEEE)</strong> — <strong>$350</strong> standard,
-          <strong> $450</strong> late.
+          <strong>Standard registration base fee:</strong> <strong>$500</strong>
         </li>
         <li>
-          <strong>Bangladesh participants</strong> — approximately
-          <strong> $120-$150</strong> standard, around <strong>$250</strong> late
-          (final category brackets will be published in the portal).
-        </li>
-        <li>
-          <strong>Other categories</strong> (e.g., students, IEEE members,
-          listeners/workshop-only) will be aligned to this charge framework and
-          listed with exact amounts at registration opening.
+          All published discounts are applied against this base according to the
+          policy below.
         </li>
       </ul>
 
-      <h2>Currency and payment</h2>
+      <h2>Discount policy</h2>
+      <ul>
+        <li>
+          <strong>Research4Life Category A countries:</strong> <strong>80% off</strong>
+        </li>
+        <li>
+          <strong>Research4Life Category B countries:</strong> <strong>50% off</strong>
+        </li>
+        <li>
+          <strong>IEEE members:</strong> <strong>25% off</strong>
+        </li>
+      </ul>
+
+      <h2>How discounts are applied</h2>
       <p>
-        Accepted currencies, tax treatment, and the payment gateway will be
-        listed here. Invoicing and institutional billing instructions will be
-        provided for delegates who require them.
+        Discounts are <strong>not cumulative</strong>. If a participant is eligible for
+        multiple discounts, the system applies only the <strong>highest single discount</strong>.
+        In other words, this is a <strong>max-discount rule</strong>, not stacking.
+      </p>
+      <ul>
+        <li>
+          <strong>Category A + IEEE:</strong> max(80%, 25%) = 80% → final <strong>$100.00</strong>
+        </li>
+        <li>
+          <strong>Category B + IEEE:</strong> max(50%, 25%) = 50% → final <strong>$250.00</strong>
+        </li>
+        <li>
+          <strong>No country discount + IEEE:</strong> max(0%, 25%) = 25% → final <strong>$375.00</strong>
+        </li>
+      </ul>
+
+      <RegistrationFeeCalculator />
+
+      <h2>Eligibility and verification</h2>
+      <p>
+        Delegates claiming discounted categories should be prepared to provide
+        supporting information during registration. The organizing team may request
+        evidence for country-category eligibility and IEEE membership status before
+        final payment confirmation.
       </p>
 
-      <h2>What to expect next</h2>
+      <h2>Payment, invoicing, and updates</h2>
       <p>
-        The portal will publish exact category definitions (author/student/listener),
-        IEEE discount policy if applicable, and workshop bundling options. See also{" "}
-        <a className="icami-inline-link" href="/registration/guidelines">
-          Registration guidelines
-        </a>{" "}
-        and the main{" "}
-        <a className="icami-inline-link" href="/registration">
-          Registration
-        </a>{" "}
-        overview.
+        Payment gateway details, accepted payment methods, tax notes, and
+        invoice-request procedures will be published at portal launch. If policy
+        updates occur, this page will remain the source of truth for final fee
+        computation rules.
       </p>
     </DocumentPage>
   );
