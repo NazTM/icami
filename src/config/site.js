@@ -5,7 +5,7 @@
 
 export const site = {
   shortTitle: "ICAMI 2026",
-  fullTitle: "International Conference on Applied Machine Intelligence",
+  fullTitle: "International Conference on Advanced Machine Intelligence",
   location: "Multimedia University (MMU), Malaysia",
   tagline: "Advancing Intelligent Systems for Real-World Impact",
   contactEmail: "contact@icami.net",
@@ -142,7 +142,7 @@ export const footerQuick = [
 export const tracks = [
   {
     slug: "foundations",
-    title: "Foundations of Applied Machine Intelligence",
+    title: "Foundations of Advanced Machine Intelligence",
     summary:
       "Learning theory, optimization, generalization, and theoretical grounding for deployed intelligent systems.",
     bullets: [
