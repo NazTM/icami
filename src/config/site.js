@@ -141,105 +141,84 @@ export const footerQuick = [
 
 export const tracks = [
   {
-    slug: "foundations",
-    title: "Foundations of Advanced Machine Intelligence",
+    slug: "general-trustworthy-autonomous",
+    title: "General, Trustworthy, and Autonomous Intelligence",
     summary:
-      "Learning theory, optimization, generalization, and theoretical grounding for deployed intelligent systems.",
+      "Core learning architectures and reasoning for robust, explainable, safety-aware autonomy in real-world systems.",
     bullets: [
-      "Learning theory in real-world settings",
-      "Optimization techniques for modern ML systems",
-      "Generalization, robustness, and data-centric AI",
-      "Theoretical insights for applied intelligence systems",
+      "General-purpose learning architectures",
+      "Autonomous decision-making systems",
+      "Self-supervised, lifelong, and meta-learning",
+      "Cognitive architectures and reasoning systems",
+      "Multi-agent intelligence and coordination",
+      "Embodied intelligence and adaptive agents",
+      "Planning, reasoning, and problem-solving systems",
+      "Explainable and interpretable AI",
+      "Fairness, bias detection, and mitigation",
+      "Ethical AI and governance frameworks",
+      "Causal reasoning and transparency in AI",
+      "Privacy-preserving and secure AI",
+      "Robustness, uncertainty, and reliability in AI systems",
+      "AI safety, alignment, and responsible deployment",
     ],
   },
   {
-    slug: "representation-generative",
-    title: "Representation Learning and Generative Models",
+    slug: "generative-quantum-scalable",
+    title: "Generative, Quantum, and Scalable Intelligence",
     summary:
-      "Self-supervised learning, generative modeling, multimodal and foundation models across domains.",
+      "Foundation and agentic generative systems, quantum machine learning, and scalable/distributed AI architectures.",
     bullets: [
-      "Self-supervised and unsupervised learning",
-      "Generative models including GANs and diffusion models",
-      "Multimodal and foundation models",
-      "Representation learning for complex data domains",
+      "Large Language Models and foundation models",
+      "Multimodal generative systems",
+      "Retrieval-augmented generation (RAG)",
+      "Agentic AI and tool-augmented systems",
+      "Hallucination mitigation and controllability",
+      "Efficient and low-resource generative models",
+      "Synthetic data generation and augmentation",
+      "Quantum machine learning algorithms",
+      "Quantum neural networks and hybrid systems",
+      "Quantum optimization and reinforcement learning",
+      "Scalable AI systems and architectures",
+      "Distributed and high-performance AI systems",
+      "Energy-efficient and resource-aware AI",
+      "Green AI and sustainable model training",
+      "Resilient AI systems under constraints and failures",
     ],
   },
   {
-    slug: "perception",
-    title: "Intelligent Perception Systems",
+    slug: "healthcare-intelligent-medical-systems",
+    title: "AI for Healthcare and Intelligent Medical Systems",
     summary:
-      "Vision, multimodal perception, 3D understanding, video, and imaging for science and industry.",
+      "Methods and systems for clinical decision support, medical imaging, remote monitoring, and biomedical analytics.",
     bullets: [
-      "Vision-language and multimodal perception",
-      "3D vision and scene understanding",
-      "Video analytics and temporal modeling",
-      "Medical image analysis and biomedical imaging",
+      "AI for medical imaging and diagnostics",
+      "Clinical decision support systems",
+      "Remote monitoring and digital health",
+      "AI in bioinformatics and precision medicine",
+      "AI-driven healthcare analytics and prediction",
+      "Intelligent medical devices and systems",
     ],
   },
   {
-    slug: "language-reasoning",
-    title: "Language Intelligence and Reasoning Systems",
+    slug: "industry-infrastructure-smart-systems",
+    title: "AI for Industry, Infrastructure, and Smart Systems",
     summary:
-      "LLMs, retrieval and knowledge integration, reasoning, planning, and multilingual NLP.",
+      "Applied AI for industry and infrastructure: manufacturing, transportation, IoT/cyber-physical systems, energy, and agriculture.",
     bullets: [
-      "Large language models and foundation NLP systems",
-      "Retrieval-augmented generation and knowledge integration",
-      "Machine reasoning, planning, and decision-making",
-      "Multilingual and low-resource language processing",
-    ],
-  },
-  {
-    slug: "systems",
-    title: "AI Systems and Scalable Intelligence",
-    summary:
-      "Distributed training, efficient inference, MLOps, and systems for large-scale AI workloads.",
-    bullets: [
-      "Distributed and large-scale machine learning systems",
-      "Efficient training and inference for deep models",
-      "MLOps, model lifecycle, and deployment pipelines",
-      "Systems for foundation and large-scale AI models",
-    ],
-  },
-  {
-    slug: "trustworthy",
-    title: "Trustworthy, Secure, and Responsible AI",
-    summary:
-      "Explainability, fairness, robustness, privacy, and governance for high-stakes deployment.",
-    bullets: [
-      "Explainable and interpretable AI systems",
-      "Fairness, bias mitigation, and ethical AI",
-      "Adversarial machine learning and robustness",
-      "Privacy-preserving and secure AI techniques",
-    ],
-  },
-  {
-    slug: "edge-cps",
-    title: "Edge Intelligence and Cyber-Physical Systems",
-    summary:
-      "Edge AI, TinyML, IoT, robotics, and real-time intelligence under resource constraints.",
-    bullets: [
-      "Edge AI and TinyML",
-      "Intelligent IoT systems and embedded AI",
-      "Autonomous systems and robotics integration",
-      "Real-time and resource-constrained AI applications",
-    ],
-  },
-  {
-    slug: "science-impact",
-    title: "AI for Scientific Discovery and High-Impact Applications",
-    summary:
-      "AI in healthcare, climate and sustainability, scientific computing, and broad societal impact.",
-    bullets: [
-      "AI in healthcare and biomedical sciences",
-      "Climate science, sustainability, and environmental AI",
-      "Scientific computing and data-driven discovery",
-      "AI applications in engineering, industry, and society",
+      "Smart manufacturing and Industry 4.0",
+      "Predictive maintenance and fault detection",
+      "Digital twins and simulation systems",
+      "Intelligent transportation systems",
+      "AI for IoT and cyber-physical systems",
+      "AI for energy management and smart grids",
+      "AI for agriculture and smart farming",
+      "AI for business intelligence and real-world deployment",
     ],
   },
 ];
 
 /** Homepage preview: first N tracks with link to full page. */
-export const tracksHomePreviewCount = 6;
+export const tracksHomePreviewCount = 4;
 
 /**
  * Temporary keynote roster sourced from current committee members.
