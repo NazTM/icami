@@ -84,7 +84,6 @@ export const navGroups = [
     title: "Authors & submissions",
     description: "From the call for papers through camera-ready files and how you present.",
     links: [
-      { href: "/", label: "Home" },
       { href: "/call-for-papers", label: "Call for Papers" },
       { href: "/tracks", label: "Tracks" },
       { href: "/submission", label: "Submission" },
@@ -126,11 +125,12 @@ export const navGroups = [
   },
 ];
 
-/** Shortcuts — top bar pills + mobile dock. */
+/** Shortcuts — mobile dock pills. */
 export const navQuick = [
   { href: "/call-for-papers", label: "CfP" },
   { href: "/submission", label: "Submit" },
 ];
+
 
 export const footerQuick = [
   { href: "/call-for-papers", label: "Call for Papers" },
