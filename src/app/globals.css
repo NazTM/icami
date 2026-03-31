@@ -7,12 +7,12 @@
 :root {
   --icami-ink: #02040c;
   --icami-ink-deep: #010208;
-  --icami-blue: #0033a0;
-  --icami-blue-bright: #1e5cff;
+  --icami-blue: #0089cc;
+  --icami-blue-bright: #0089cc;
   --icami-blue-muted: #0a1744;
   --icami-gold: #c9a227;
   --icami-gold-dim: #a28222;
-  --icami-red: #c8102e;
+  --icami-red: #d40f7d;
   --icami-surface: #eef1f6;
   --icami-surface-elevated: #ffffff;
   --icami-text: #12151c;
@@ -51,6 +51,7 @@
   h3 {
     font-family: var(--font-heading);
     font-weight: 400;
+    text-transform: uppercase;
   }
 }
 
