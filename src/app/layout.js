@@ -1,4 +1,4 @@
-import { Bebas_Neue, Bangers, Roboto_Slab } from "next/font/google";
+import { Gelasio, Bangers, Roboto_Slab } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { MotionRoot } from "@/components/providers/motion-root";
@@ -20,8 +20,8 @@ const robotoSlab = Roboto_Slab({
   display: "swap",
 });
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+const bebasNeue = Gelasio({
+  weight: "600",
   subsets: ["latin"],
   variable: "--font-bebas-neue",
   display: "swap",
