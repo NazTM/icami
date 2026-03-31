@@ -1,14 +1,39 @@
 import { DocumentPage } from "@/components/page/document-page";
+import { AvatarEasterEgg } from "@/components/committee/avatar-easter-egg";
 
 const initials = (name) =>
   name
     .split(/[\s.]+/)
     .filter(Boolean)
-    .slice(0, 2)
+    // Use last 2 “name parts” so e.g. “First Last” => “L”, “First Middle Last” => “ML”
+    .slice(-2)
     .map((p) => p[0]?.toUpperCase())
     .join("");
 
 function MemberCard({ name, affiliation, label, emphasis = false }) {
+  const frameClass = emphasis
+    ? "border-sky-200/85 bg-sky-50 text-sky-700"
+    : label === "Creative & Design Chair"
+      ? "border-pink-200/80 bg-pink-50 text-pink-700"
+      : label === "Publicity Chair"
+        ? "border-amber-200/80 bg-amber-50 text-amber-700"
+        : label === "Platform Chair" || label === "Platform"
+          ? "border-purple-200/80 bg-purple-50 text-purple-700"
+          : label === "Industry Chairs"
+            ? "border-emerald-200/80 bg-emerald-50 text-emerald-700"
+            : label === "Area Chair"
+              ? "border-blue-200/80 bg-blue-50 text-blue-700"
+              : "border-slate-200/95 bg-white text-slate-600";
+
+  const nameClass = emphasis
+    ? "text-icami-blue"
+    : label === "Platform Chair" || label === "Platform"
+      ? "text-purple-900 group-hover:text-purple-800"
+      : "text-slate-900 group-hover:text-icami-blue";
+
+  const isRajiebEasterEgg =
+    (label === "Platform Chair" || label === "Platform") && name === "Rajieb";
+
   return (
     <div
       className={`group relative flex gap-3 rounded-2xl border p-4 transition ${
@@ -17,12 +42,21 @@ function MemberCard({ name, affiliation, label, emphasis = false }) {
           : "border-slate-200/90 bg-white/70 hover:border-sky-200/90"
       }`}
     >
-      <div
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200/90 bg-gradient-to-b from-slate-50 to-white text-sm font-semibold text-slate-700"
-        aria-hidden
-      >
-        {initials(name) || "—"}
-      </div>
+      {isRajiebEasterEgg ? (
+        <AvatarEasterEgg
+          initials={initials(name)}
+          frameClassName={frameClass}
+          imageSrc="/rajieb.jpg"
+          imageAlt="Rajieb"
+        />
+      ) : (
+        <div
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border bg-white text-sm font-semibold ${frameClass}`}
+          aria-hidden
+        >
+          {initials(name) || "—"}
+        </div>
+      )}
 
       <div className="min-w-0 flex-1">
         {label ? (
@@ -34,11 +68,8 @@ function MemberCard({ name, affiliation, label, emphasis = false }) {
         ) : null}
 
         <div
-          className={`truncate text-[0.96rem] font-semibold ${
-            emphasis
-              ? "text-icami-blue"
-              : "text-slate-900 group-hover:text-icami-blue"
-          }`}
+          className={`text-[0.96rem] font-semibold leading-snug ${nameClass}`}
+          title={name}
         >
           {name}
         </div>
@@ -73,125 +104,95 @@ export default function OrganizingCommitteePage() {
       <h2 className="mt-8">EXECUTIVE COMMITTEE</h2>
       <div className="mt-4 grid grid-cols-1 gap-3 max-w-3xl">
         <MemberCard
-          emphasis
           label="General Chair"
-          name="Prof. Dr. Mohammad Firoz Mridha"
-          affiliation="Founder & Research Director — Professor & Head, Dept. of CSE, American International University-Bangladesh (AIUB)."
+          emphasis
+          name="Dr. Dunren Che"
+          affiliation="School of Computing, Southern Illinois University, Carbondale, IL 62901, USA"
+        />
+        <MemberCard
+          label="General Chair"
+          emphasis
+          name="Dr. Abu Asaduzzaman"
+          affiliation="Professor and Associate Chair, College of Engineering, Electrical and Computer Engineering, Wichita State University (WSU), USA"
+        />
+
+        <MemberCard
+          label="Program Chair"
+          name="Dr. M. Julius Hossain"
+          affiliation="Head of Image and Data Analysis Group at the Centre for Cancer Immunology, University of Southampton, UK"
         />
         <MemberCard
           label="Program Chair"
-          name="Md Mohsin Kabir"
-          affiliation="EMJ Masters Student, Intelligent Field Robotic Systems — University of Girona, Spain | Eötvös Loránd University, Hungary."
+          name="Dr. Joseph Shin"
+          affiliation="School of Computer Science and Engineering, The University of Aizu, Aizuwakamatsu, Japan"
+        />
+        <MemberCard
+          label="Program Chair"
+          name="Md. Jakir Hossen"
+          affiliation="Center for Advanced Analytics (CAA), COE for Artificial Intelligence, Faculty of Engineering & Technology (FET), Multimedia University, 75450 Melaka, Malaysia"
         />
       </div>
 
-      <h2 className="mt-10">ADVISORY BOARD</h2>
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 className="mt-10">TECHNICAL LEADERSHIP</h2>
+      <h3 className="mt-4">Technical Program Committee (TPC) Chair</h3>
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <MemberCard
-          name="Prof. Dr. Jungpil Shin"
-          affiliation="Professor, Department of Computer Science — University of Aizu, Japan."
-        />
-        <MemberCard
-          name="Prof. Dr. Muhammad Mostofa Monwar"
-          affiliation="Professor, Department of IT — King Abdulaziz University."
-        />
-        <MemberCard
-          name="Prof. Dr. Md. Abdul Hamid"
-          affiliation="Professor, Department of IT — King Abdulaziz University."
-        />
-        <MemberCard
+          label="TPC Chair"
           name="Dr. Nilanjan Dey"
-          affiliation="Professor of Computer Science — Techno International New Town (Kolkata) | University of Reading (UK, Visiting Professor)."
+          affiliation="Department of Computer Science and Engineering, Techno International New Town, Kolkata, India"
         />
-        {/* <MemberCard name="Dr. Sujit Biswas" /> */}
         <MemberCard
-          name="Dr. Md. Rashedul Islam"
-          affiliation="Chief Researcher of Computer Vision & Chief Engineer (Overseas Division) — Chowagiken Corp., Japan."
+          label="TPC Chair"
+          name="Dr. Yutaka Watanobe"
+          affiliation="Department of Computer Science and Engineering, University of Aizu, Aizu-Wakamatsu 965-8580, Japan"
+        />
+        <MemberCard
+          label="TPC Chair"
+          name="Dr. Salah Uddin Ahmed"
+          affiliation="School of Business, University of South-Eastern Norway, Honefoss, Norway"
         />
       </div>
 
-      <h2 className="mt-10">PROGRAM COMMITTEE</h2>
-      <h3 className="mt-4">Senior Program Committee / Area Chairs</h3>
+      <h3 className="mt-8">Area Chairs</h3>
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          {
-            name: "Khan Md Hasib",
-            affiliation:
-              "Asst. Prof. — Dept. of CSE, The University of New South Wales (Australia).",
-          },
-          {
-            name: "MD. Reazul Islam",
-            affiliation:
-              "Lecturer, Department of Computer Science & Engineering — Bangladesh University of Business and Technology (BUBT).",
-          },
-          {
-            name: "Sultanul Arifeen Hamim",
-            affiliation:
-              "Lecturer — Department of Computer Science & Engineering, American International University-Bangladesh (AIUB).",
-          },
-        ].map((m) => (
-          <MemberCard key={m.name} name={m.name} affiliation={m.affiliation} />
-        ))}
-      </div>
-
-      <h3 className="mt-8">Technical Program Committee</h3>
-      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          {
-            name: "Jamin Rahman Jim",
-            affiliation:
-              "Erasmus Mundus Joint Master Student — Intelligent Field Robotic Systems (IFRoS), University of Girona, Spain.",
-          },
-          {
-            name: "Durjoy Mistry",
-            affiliation:
-              "Lecturer — Computer Science & Engineering (CSE), UAP.",
-          },
-          {
-            name: "Md Abrar Jahin",
-            affiliation:
-              "B.Sc. in Industrial & Production Engineering (IPE) — KUET.",
-          },
-          {
-            name: "Md. Anwar Hussen Wadud",
-            affiliation:
-              "Chairman, Department of CSE — Sunamgonj Science and Technology University.",
-          },
-          {
-            name: "Ashfia Jannat Keya",
-            affiliation:
-              "Lecturer — Department of Computer Science & Engineering, Bangladesh University of Business and Technology (BUBT).",
-          },
-          {
-            name: "Khondokar Oliullah",
-            affiliation: "Lecturer — Dept. of CSE, BUBT.",
-          },
-          {
-            name: "Adit Ishraq",
-            affiliation:
-              "Master's in Computer and Systems Sciences — Stockholm University.",
-          },
-          {
-            name: "Osim Kumar Pal",
-            affiliation:
-              "Erasmus Mundus Master Student — Biomedical Engineering, University of Kragujevac, Serbia.",
-          },
-          {
-            name: "Md Farhan Ishmam",
-            affiliation:
-              "B.Sc. Undergraduate — Computer Science & Engineering (CSE), American International University Bangladesh.",
-          },
-        ].map((m) => (
-          <MemberCard key={m.name} name={m.name} affiliation={m.affiliation} />
-        ))}
+        <MemberCard
+          label="Area Chair"
+          name="Dr. M. F. Mridha"
+          affiliation="Department of Computer Science, American International University - Bangladesh (AIUB), Dhaka 1229, Bangladesh"
+        />
+        <MemberCard
+          label="Area Chair"
+          name="Dr. Hanif Bhuiyan"
+          affiliation="Performance & Analytics City of Gold Coast, Gold Coast, Australia"
+        />
+        <MemberCard
+          label="Area Chair"
+          name="Dr. Zeyar Aung"
+          affiliation="Department of Computer Science, Khalifa University, Abu Dhabi, United Arab Emirates"
+        />
+        <MemberCard
+          label="Area Chair"
+          name="Dr. M M Manjurul Islam"
+          affiliation="School of Computing, Engineering and Intelligent Systems at Ulster University, UK"
+        />
       </div>
 
       <h2 className="mt-10">SPECIALIZED CHAIRS</h2>
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <MemberCard
-          label="Publicity Chair"
-          name="Md. Mehedi Hasan"
-          affiliation="B.Sc. Undergraduate — CSE, Bangladesh University of Business and Technology (BUBT)."
+          label="Publication Chair"
+          name="Dr. Md Abdul Hamid"
+          affiliation="King Abdulaziz University, Jeddah, Saudi Arabia"
+        />
+        <MemberCard
+          label="Finance Chair"
+          name="Dr. Muhammad Mostafa Monowar"
+          affiliation="Faculty of Computing and Information Technology, King Abdulaziz University, Jeddah, Saudi Arabia"
+        />
+        <MemberCard
+          label="Publicity / Communication Chair"
+          name="Dr. Md. Rashedul Islam"
+          affiliation="Department of Computer Science and Engineering, University of Asia Pacific, Dhaka 1216, Bangladesh"
         />
         <MemberCard
           label="Creative & Design Chair"
@@ -199,19 +200,19 @@ export default function OrganizingCommitteePage() {
           affiliation="BS, Computer Science — BRAC University."
         />
         <MemberCard
-          label="Publication Chair"
-          name="Mohammad Sayem Chowdhury"
-          affiliation="M.Sc. in Computer Science — American International University Bangladesh."
+          label="Industry Chairs"
+          name="Dr. Md.Nahid Newaz"
+          affiliation="Senior Solutions Architect - GPU @ NVIDIA, USA"
         />
         <MemberCard
-          label="Web Chair"
-          name="Md Nahid Hasan"
+          label="Industry Chairs"
+          name="Dr. Nahid Anwar"
+          affiliation="Senior Data Scientist at Walmart, USA"
+        />
+        <MemberCard
+          label="Publicity Chair"
+          name="Md. Mehedi Hasan"
           affiliation="B.Sc. Undergraduate — CSE, Bangladesh University of Business and Technology (BUBT)."
-        />
-        <MemberCard
-          label="Sponsorship Chair"
-          name="Arifur Rahman"
-          affiliation="MBA in Business Analytics — School of Business, International American University."
         />
       </div>
 
@@ -223,39 +224,21 @@ export default function OrganizingCommitteePage() {
         <div className="mt-2 text-slate-700">To be announced</div>
       </div>
 
-      <h2 className="mt-10">ADDITIONAL COMMITTEE MEMBERS</h2>
+      <h2 className="mt-10">TECHNICAL PROGRAM COMMITTEE MEMBER</h2>
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <MemberCard
-          name="Rakin Sad Aftab"
-          affiliation="M.Sc. in Computer Science — University of Calgary."
+          label="Technical Program Committee Member"
+          name="Dr. Md. Rajibul Islam"
+          affiliation="Department of Data Science & Engineering, Bangladesh University of Business and Technology (BUBT), Bangladesh"
         />
+      </div>
+
+      <h2 className="mt-10">PLATFORM CHAIR</h2>
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <MemberCard
-          name="Zabir Mohammad"
-          affiliation="B.Sc. Undergraduate — Computer Science & Engineering (CSE), Bangladesh University of Business and Technology (BUBT)."
-        />
-        <MemberCard
-          name="Aklima Akter Lima"
-          affiliation="B.Sc. Undergraduate — Computer Science & Engineering (CSE), Bangladesh University of Business and Technology (BUBT)."
-        />
-        <MemberCard
-          name="Istiak Mahmud"
-          affiliation="B.Sc. Undergraduate — CSE, Ahsanullah University of Science and Technology."
-        />
-        <MemberCard
-          name="Adit Ishraq"
-          affiliation="Master's in Computer and Systems Sciences — Stockholm University."
-        />
-        <MemberCard
-          name="Osim Kumar Pal"
-          affiliation="Erasmus Mundus Master Student — Biomedical Engineering, University of Kragujevac, Serbia."
-        />
-        <MemberCard
-          name="Md Farhan Ishmam"
-          affiliation="B.Sc. Undergraduate — Computer Science & Engineering (CSE), American International University Bangladesh."
-        />
-        <MemberCard
-          name="Mir Maruf Ahmed"
-          affiliation="B.Sc. Undergraduate — Computer Science & Engineering (CSE), American International University Bangladesh."
+          label="Platform Chair"
+          name="Rajieb"
+          affiliation="Master of Computer Science, Military Institute of Science and Technology (MIST)"
         />
       </div>
     </DocumentPage>
