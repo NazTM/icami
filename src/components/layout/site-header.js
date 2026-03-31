@@ -127,13 +127,13 @@ function SiteHeaderInner() {
           isHome
             ? homeBarSolid
               ? "sticky top-0 z-[300] isolate border-b border-slate-200/80 bg-white pt-[env(safe-area-inset-top,0px)] shadow-sm shadow-slate-900/[0.04] [transform:translateZ(0)] transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out max-md:backdrop-blur-none md:bg-white/95 md:backdrop-blur-xl"
-              : "sticky top-0 z-[300] isolate border-b border-transparent bg-transparent pt-[env(safe-area-inset-top,0px)] shadow-none backdrop-blur-none [transform:translateZ(0)] transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out"
+              : "sticky top-0 z-[300] isolate bg-transparent pt-[env(safe-area-inset-top,0px)] shadow-none backdrop-blur-none [transform:translateZ(0)] transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out"
             : "sticky top-0 z-[300] isolate relative border-b border-slate-200/80 bg-white pt-[env(safe-area-inset-top,0px)] shadow-sm shadow-slate-900/[0.04] [transform:translateZ(0)] after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-[1] after:h-px after:bg-gradient-to-r after:from-transparent after:via-[#0033a0]/22 after:to-transparent max-md:backdrop-blur-none md:bg-white/95 md:backdrop-blur-xl"
         }
       >
         <div
           className={`relative z-10 mx-auto flex h-16 max-w-7xl items-center gap-2 px-3 sm:gap-4 sm:px-6 lg:px-8 ${
-            isHome && !homeBarSolid ? "bg-transparent" : ""
+            isHome && !homeBarSolid ? "bg-transparent text-slate-100" : ""
           }`}
         >
           <Link
@@ -147,7 +147,7 @@ function SiteHeaderInner() {
             }
           >
             <Image
-              src="/icami.png"
+              src="https://cdn.icami.net/icami.png"
               alt=""
               width={40}
               height={40}
@@ -169,7 +169,7 @@ function SiteHeaderInner() {
               className={`cursor-pointer rounded-full px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-wider transition ${
                 pathname === "/"
                   ? "text-icami-blue"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-slate-900 hover:bg-slate-100 hover:text-slate-900"
               }`}
             >
               Home
@@ -187,7 +187,7 @@ function SiteHeaderInner() {
               className={`cursor-pointer rounded-full px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-wider transition ${
                 pathname === "/contact" || pathname.startsWith("/contact/")
                   ? "text-icami-blue"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  : "text-[#0089cc] hover:bg-slate-100 hover:text-slate-900"
               }`}
             >
               Contact
