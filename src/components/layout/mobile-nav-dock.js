@@ -76,18 +76,12 @@ function DockIcon({ name }) {
   return null;
 }
 
-function DockLink({ href, label, icon, active, isHome }) {
+function DockLink({ href, label, icon, active }) {
   return (
     <Link
       href={href}
       className={`flex min-h-[52px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl px-1 py-4 text-[0.65rem] font-semibold uppercase tracking-wide md:transition md:active:scale-95 ${
-        active
-          ? isHome
-            ? "text-sky-300"
-            : "text-sky-700"
-          : isHome
-            ? "text-zinc-500 hover:text-zinc-300"
-            : "text-slate-500 hover:text-slate-800"
+        active ? "text-sky-700" : "text-slate-500 hover:text-slate-800"
       }`}
     >
       <DockIcon name={icon} />
@@ -96,8 +90,9 @@ function DockLink({ href, label, icon, active, isHome }) {
   );
 }
 
-export function MobileNavDock({ isHome, exploreOpen, onOpenExplore }) {
+export function MobileNavDock({ exploreOpen, onOpenExplore }) {
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   const active = (href) =>
     href === "/"
@@ -106,11 +101,7 @@ export function MobileNavDock({ isHome, exploreOpen, onOpenExplore }) {
 
   return (
     <nav
-      className={`fixed bottom-0 left-0 right-0 z-[140] border-t lg:hidden ${
-        isHome
-          ? "border-white/10 bg-[#070b14]/95 pb-[env(safe-area-inset-bottom,0px)] backdrop-blur-xl"
-          : "border-slate-200/90 bg-white/95 pb-[env(safe-area-inset-bottom,0px)] shadow-[0_-8px_30px_-12px_rgba(15,23,42,0.12)] backdrop-blur-xl"
-      }`}
+      className="fixed bottom-0 left-0 right-0 z-[140] border-t border-slate-200/90 bg-white/95 pb-[env(safe-area-inset-bottom,0px)] shadow-[0_-8px_30px_-12px_rgba(15,23,42,0.12)] backdrop-blur-xl lg:hidden"
       aria-label="Quick navigation"
     >
       <div className="mx-auto flex max-w-lg items-stretch justify-between gap-0.5 px-1 pt-1">
@@ -119,37 +110,34 @@ export function MobileNavDock({ isHome, exploreOpen, onOpenExplore }) {
           label="Home"
           icon="home"
           active={active("/")}
-          isHome={isHome}
         />
         <DockLink
           href="/call-for-papers"
           label="CfP"
           icon="cfp"
           active={active("/call-for-papers")}
-          isHome={isHome}
         />
         <DockLink
           href="/important-dates"
           label="Dates"
           icon="dates"
           active={active("/important-dates")}
-          isHome={isHome}
         />
-        <button
-          type="button"
-          onClick={onOpenExplore}
-          aria-expanded={exploreOpen}
-          aria-haspopup="dialog"
-          aria-controls="nav-explore-overlay"
-          className={`flex min-h-[52px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl px-1 py-1.5 text-[0.65rem] font-semibold uppercase tracking-wide md:transition md:active:scale-95 ${
-            isHome
-              ? "text-amber-300/95 hover:text-amber-200"
-              : "text-amber-700 hover:text-amber-800"
-          }`}
-        >
-          <DockIcon name="grid" />
-          <span>Menu</span>
-        </button>
+        <div className="relative flex min-w-0 flex-1">
+          <button
+            type="button"
+            onClick={onOpenExplore}
+            aria-expanded={exploreOpen}
+            aria-haspopup="dialog"
+            aria-controls="nav-explore-overlay"
+            className={`flex min-h-[52px] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-2xl px-1 py-1.5 text-[0.65rem] font-semibold uppercase tracking-wide md:transition md:active:scale-95 ${
+              "text-amber-700 hover:text-amber-800"
+            }`}
+          >
+            <DockIcon name="grid" />
+            <span>Menu</span>
+          </button>
+        </div>
       </div>
     </nav>
   );
