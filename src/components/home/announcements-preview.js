@@ -15,7 +15,9 @@ function AnnouncementCard({ item }) {
   return (
     <li className="icami-card p-7">
       <p className="icami-mono-eyebrow !text-slate-500">Announcement</p>
-      <h3 className="mt-3 font-heading text-2xl tracking-[0.06em] text-icami-text">{item.title}</h3>
+      <h3 className="mt-3 font-heading text-2xl tracking-[0.06em] text-icami-text">
+        {item.title}
+      </h3>
       {item.date ? (
         <p className="mt-2 text-xs uppercase tracking-[0.14em] text-slate-500">
           {new Date(item.date).toLocaleDateString("en-US", {
@@ -25,7 +27,9 @@ function AnnouncementCard({ item }) {
           })}
         </p>
       ) : null}
-      <p className="mt-4 text-sm leading-relaxed text-slate-600">{item.excerpt}</p>
+      <p className="mt-4 text-sm leading-relaxed text-slate-600">
+        {item.excerpt}
+      </p>
       <div className="mt-5">
         <Cmp
           {...linkProps}
@@ -42,7 +46,7 @@ export function AnnouncementsPreview({ items }) {
   return (
     <section className="scroll-mt-8">
       <SectionHeading
-        index="03"
+        index="04"
         title="Announcements"
         actionHref="/announcements"
         actionLabel="All announcements"
