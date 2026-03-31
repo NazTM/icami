@@ -6,7 +6,7 @@ export function TracksPreview() {
   return (
     <section className="scroll-mt-8">
       <SectionHeading
-        index="04"
+        index="05"
         title="Featured tracks"
         actionHref="/tracks"
         actionLabel="All tracks"

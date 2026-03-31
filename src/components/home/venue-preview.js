@@ -25,7 +25,7 @@ const venueImages = [
 export function VenuePreview() {
   return (
     <section className="scroll-mt-8 pb-4">
-      <SectionHeading index="07" title="Venue" />
+      <SectionHeading index="08" title="Venue" />
       <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         <div className="grid gap-4 sm:grid-cols-2">
           <figure className="icami-chamfer-panel relative overflow-hidden border border-slate-200/90 bg-white shadow-[0_24px_60px_-28px_rgba(15,23,42,0.28)]">
@@ -68,8 +68,8 @@ export function VenuePreview() {
             <HighlightBrush variant="sky" className="font-medium">
               {site.location}
             </HighlightBrush>
-            . Travel, local access, and suggested accommodation will be published on
-            the venue page.
+            . Travel, local access, and suggested accommodation will be
+            published on the venue page.
           </p>
           <Link
             href="/venue"
