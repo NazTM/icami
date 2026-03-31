@@ -15,7 +15,7 @@ import { useRef } from "react";
 const heroTopPad = "pt-[calc(2rem+4rem+env(safe-area-inset-top,0px))]";
 
 const MARQUEE =
-  "Applied machine intelligence · MMU · Malaysia · Systems that ship · ICAMI · Neural + real world · Deployed models · ";
+  "Advanced machine intelligence · MMU · Malaysia · Systems that ship · ICAMI · Neural + real world · Deployed models · ";
 
 /** Chamfered polygon — industrial CTA, not pills */
 const chamfer =
