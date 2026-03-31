@@ -9,7 +9,7 @@ export default function TracksPage() {
   return (
     <DocumentPage title="Conference tracks" eyebrow="Program">
       <p>
-        Eight thematic tracks structure the technical program. Keywords below
+        Four thematic tracks structure the technical program. Keywords below
         are indicative, not exhaustive—choose the track that best matches your
         contribution.
       </p>
