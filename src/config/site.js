@@ -51,7 +51,7 @@ export const importantDates = [
 /** Primary navigation (always visible on large screens). */
 export const navPrimary = [
   { href: "/", label: "Home" },
-  { href: "/announcements", label: "Announcements" },
+  // { href: "/announcements", label: "Announcements" },
   { href: "/call-for-papers", label: "Call for Papers" },
   { href: "/tracks", label: "Tracks" },
   { href: "/submission", label: "Submission" },
@@ -84,7 +84,8 @@ export const navMore = [
 export const navGroups = [
   {
     title: "Authors & submissions",
-    description: "From the call for papers through camera-ready files and how you present.",
+    description:
+      "From the call for papers through camera-ready files and how you present.",
     links: [
       { href: "/announcements", label: "Announcements" },
       { href: "/call-for-papers", label: "Call for Papers" },
@@ -134,7 +135,6 @@ export const navQuick = [
   { href: "/call-for-papers", label: "CfP" },
   { href: "/submission", label: "Submit" },
 ];
-
 
 export const footerQuick = [
   { href: "/call-for-papers", label: "Call for Papers" },
@@ -238,7 +238,8 @@ export const keynotes = [
   },
   {
     name: "Prof. Dr. Jungpil Shin",
-    affiliation: "Professor, Department of Computer Science, University of Aizu, Japan",
+    affiliation:
+      "Professor, Department of Computer Science, University of Aizu, Japan",
     talkTitle: "Keynote title to be announced",
     image: "https://cdn.icami.net/speakers/shin.jpg",
   },
