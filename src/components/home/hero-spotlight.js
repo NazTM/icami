@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Soft radial glow that follows pointer — reveals depth on the dark hero.
+ * Soft radial glow that follows pointer — tuned for light hero.
  */
 export function HeroSpotlight({ enabled, targetRef }) {
   const [pos, setPos] = useState({ x: 42, y: 38 });
@@ -30,12 +30,12 @@ export function HeroSpotlight({ enabled, targetRef }) {
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-[1] opacity-100 mix-blend-soft-light"
+      className="pointer-events-none absolute inset-0 z-[1] opacity-90"
       style={{
         background: `radial-gradient(
           min(85vw, 720px) circle at ${pos.x}% ${pos.y}%,
-          rgba(56, 189, 248, 0.14) 0%,
-          rgba(251, 191, 36, 0.06) 28%,
+          rgba(56, 189, 248, 0.12) 0%,
+          rgba(251, 191, 36, 0.08) 28%,
           transparent 58%
         )`,
       }}
