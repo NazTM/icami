@@ -30,9 +30,9 @@ export default async function AnnouncementsPage() {
             : { href: a.readMore.href };
 
           return (
-            <li key={a.slug} className="icami-card p-7">
+            <li key={a.slug} className="icami-card flex flex-col p-7">
               <p className="icami-mono-eyebrow !text-slate-500">Announcement</p>
-              <h2 className="mt-3 text-xl tracking-wide text-icami-text">{a.title}</h2>
+              <h2 className="mt-3 line-clamp-2 text-xl tracking-wide text-icami-text">{a.title}</h2>
               {a.date ? (
                 <p className="mt-2 text-xs uppercase tracking-[0.14em] text-slate-500">
                   {new Date(a.date).toLocaleDateString("en-US", {
@@ -42,8 +42,8 @@ export default async function AnnouncementsPage() {
                   })}
                 </p>
               ) : null}
-              <p className="mt-4 text-sm leading-relaxed text-slate-600">{a.excerpt}</p>
-              <div className="mt-5">
+              <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-600">{a.excerpt}</p>
+              <div className="mt-auto pt-5">
                 <Cmp
                   {...props}
                   className="inline-flex items-center rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700 transition hover:border-sky-300 hover:text-icami-blue"
