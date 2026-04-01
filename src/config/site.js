@@ -125,7 +125,7 @@ export const navGroups = [
       { href: "/organizing-committee", label: "Organizing Committee" },
       { href: "/faq", label: "FAQ" },
       { href: "/code-of-conduct", label: "Code of Conduct" },
-      { href: "/contact", label: "Contact" },
+      // { href: "/contact", label: "Contact" },
     ],
   },
 ];

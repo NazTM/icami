@@ -13,9 +13,9 @@ function AnnouncementCard({ item }) {
     : { href: item.readMore.href };
 
   return (
-    <li className="icami-card p-7">
+    <li className="icami-card flex flex-col p-7">
       <p className="icami-mono-eyebrow !text-slate-500">Announcement</p>
-      <h3 className="mt-3 font-heading text-2xl tracking-[0.06em] text-icami-text">
+      <h3 className="mt-3 line-clamp-2 font-heading text-2xl tracking-[0.06em] text-icami-text">
         {item.title}
       </h3>
       {item.date ? (
@@ -27,10 +27,10 @@ function AnnouncementCard({ item }) {
           })}
         </p>
       ) : null}
-      <p className="mt-4 text-sm leading-relaxed text-slate-600">
+      <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-600">
         {item.excerpt}
       </p>
-      <div className="mt-5">
+      <div className="mt-auto pt-5">
         <Cmp
           {...linkProps}
           className="inline-flex items-center rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700 transition hover:border-sky-300 hover:text-icami-blue"

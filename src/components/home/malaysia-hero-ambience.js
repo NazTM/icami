@@ -8,10 +8,6 @@ export function MalaysiaHeroAmbience() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       aria-hidden
     >
-      {/* Animated Jalur Gemilang-inspired stripe field (abstracted for premium motion) */}
-      <div className="icami-hero-flag-stripes absolute inset-0" />
-      <div className="icami-hero-flag-stripes-secondary absolute inset-0" />
-
       {/* Batik-inspired flowing waves — blade / cloud motifs, very low contrast */}
       <svg
         className="icami-hero-batik-waves absolute bottom-[-5%] left-1/2 h-[min(52vh,400px)] w-[220%] max-w-none -translate-x-1/2 opacity-[0.12] sm:bottom-0 sm:opacity-[0.15]"
