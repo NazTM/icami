@@ -305,7 +305,7 @@ function SiteHeaderInner() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/icami_dark.png"
+            src="/icami_nav_dark.svg"
             alt=""
             width={480}
             height={240}
