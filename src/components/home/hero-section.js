@@ -51,12 +51,9 @@ export function HeroSection() {
 
       {/* Full-height content grid — uses absolute + inset so padding doesn't break height */}
       <div
-        className="absolute inset-0 z-10 flex flex-col justify-between"
+        className="absolute inset-0 z-10 flex flex-col justify-between pt-[calc(2rem+env(safe-area-inset-top,0px))] sm:pt-[calc(6rem+env(safe-area-inset-top,0px))]"
         style={{
-          paddingTop: "calc(2rem + 4rem + env(safe-area-inset-top, 0px))",
-          paddingBottom: "calc(1rem + 64px)",
-          paddingLeft: "0",
-          paddingRight: "0",
+          paddingBottom: "calc(1rem + 56px)",
         }}
       >
         <div
@@ -64,14 +61,14 @@ export function HeroSection() {
           style={{ paddingBottom: "0" }}
         >
           {/* ── Logo ── */}
-          <motion.div {...fade(0)} className="shrink-0">
+          <motion.div {...fade(0)} className="shrink-0 ">
             <Image
               id="hero-logo"
               src="/icami_dark.png"
               alt={site.shortTitle}
               width={480}
               height={240}
-              className="h-auto w-[clamp(9rem,28vw,26rem)] drop-shadow-[0_2px_24px_rgba(30,92,255,0.4)]"
+              className="h-full w-full sm:h-auto sm:w-[clamp(9rem,28vw,26rem)] drop-shadow-[0_2px_24px_rgba(30,92,255,0.4)]"
               priority
             />
           </motion.div>

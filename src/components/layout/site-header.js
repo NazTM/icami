@@ -129,6 +129,7 @@ function SiteHeaderInner() {
 
     const capture = () => {
       const r = heroEl.getBoundingClientRect();
+      if (r.width === 0) return;
       heroDataRef.current = {
         absTop: r.top + window.scrollY,
         left: r.left,
@@ -137,6 +138,11 @@ function SiteHeaderInner() {
       };
     };
     capture();
+    // Recapture after hero entrance animation (framer-motion ~0.7s) settles
+    const recaptureTimer = setTimeout(() => {
+      capture();
+      update();
+    }, 900);
 
     let prevArrived = null;
 
@@ -203,6 +209,7 @@ function SiteHeaderInner() {
     window.addEventListener("resize", onResize, { passive: true });
 
     return () => {
+      clearTimeout(recaptureTimer);
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", onResize);
       if (heroEl) heroEl.style.opacity = "1";
