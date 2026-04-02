@@ -41,7 +41,7 @@ export const metadata = {
   },
   description: `${site.fullTitle}. ${site.location}. ${site.tagline}`,
   icons: {
-    icon: "/icami_nav.svg",
+    icon: "/favicon.png",
   },
 };
 
