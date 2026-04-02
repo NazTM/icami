@@ -10,11 +10,11 @@ export function DatesSection() {
         actionHref="/important-dates"
         actionLabel="Full timeline"
       />
-      <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-h-24">
         {importantDates.map((row) => (
           <li
             key={row.label}
-            className={`icami-card relative overflow-hidden p-7 ${
+            className={`icami-card relative overflow-hidden p-4 ${
               row.highlight ? "icami-card-highlight" : ""
             }`}
           >
@@ -43,16 +43,24 @@ export function DatesSection() {
                 row.highlight ? "text-[#9a7b18]" : "text-icami-text"
               }`}
             >
-              {row.date}
+              {row.date ? row.linebreak ? (
+                <>
+                  {row.date.split(" ")[0]} <br /> {row.date.split(" ")[1]}
+                </>
+              ) : (
+                <>
+                  {row.date}
+                </>
+              ) : null}
             </p>
 
             <div className="mt-5 h-px w-full bg-gradient-to-r from-slate-200/80 via-slate-200/30 to-transparent" />
 
-            <p className="mt-4 text-sm leading-relaxed text-slate-600">
+            {/* <p className="mt-4 text-sm leading-relaxed text-slate-600">
               {row.highlight
                 ? "Lock this in. Everything else schedules around it."
                 : "Will be published once the timeline is finalized."}
-            </p>
+            </p> */}
           </li>
         ))}
       </ul>
