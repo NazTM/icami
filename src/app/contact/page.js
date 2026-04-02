@@ -3,6 +3,7 @@ import { site } from "@/config/site";
 
 export const metadata = {
   title: "Contact",
+  description: "Contact ICAMI 2026. Email channels for general inquiries, technical support, registration, and information.",
 };
 
 export default function ContactPage() {

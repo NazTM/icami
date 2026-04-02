@@ -2,6 +2,7 @@
 title: "Frequently asked questions"
 eyebrow: "Help"
 metaTitle: "FAQ"
+description: "Answers to common questions about ICAMI 2026: submission deadlines, registration, venue, publication, and travel."
 ---
 
 ## General

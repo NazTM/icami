@@ -2,6 +2,7 @@
 title: "Camera-ready submission guidelines"
 eyebrow: "Authors"
 metaTitle: "Camera-ready submission"
+description: "Camera-ready submission guidelines for accepted papers at ICAMI 2026. Templates, copyright, deadlines, and final formatting."
 ---
 
 After notification of acceptance, authors prepare the final camera-ready version of their paper for inclusion in the official proceedings. Exact publisher requirements, page limits, and copyright steps will be confirmed by the chairs and linked from this page.

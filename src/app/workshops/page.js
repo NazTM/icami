@@ -2,8 +2,8 @@ import { loadContent } from "@/lib/load-content";
 import { ContentPage } from "@/components/page/content-page";
 
 export async function generateMetadata() {
-  const { metaTitle, title } = await loadContent("workshops");
-  return { title: metaTitle || title };
+  const { metaTitle, title, description } = await loadContent("workshops");
+  return { title: metaTitle || title, description };
 }
 
 export default async function WorkshopsPage() {

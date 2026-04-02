@@ -86,6 +86,7 @@ function MemberCard({ name, affiliation, label, emphasis = false }) {
 
 export const metadata = {
   title: "ICAMI 2026 : Organizing Committee Structure",
+  description: "ICAMI 2026 organizing committee. General chairs, technical program committee, advisory board, and supporting roles.",
 };
 
 export default function OrganizingCommitteePage() {

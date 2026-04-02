@@ -2,6 +2,7 @@
 title: "Registration guidelines"
 eyebrow: "Attend"
 metaTitle: "Registration guidelines"
+description: "ICAMI 2026 registration guidelines. Who should register, cancellation policies, substitutions, and visa information."
 ---
 
 These guidelines describe how registration for ICAMI 2026 is expected to work once the portal is live. Final procedures may be refined by the organizing committee; this page will be updated accordingly.

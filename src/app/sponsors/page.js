@@ -2,6 +2,7 @@ import { DocumentPage } from "@/components/page/document-page";
 
 export const metadata = {
   title: "Sponsors",
+  description: "ICAMI 2026 sponsors and partners. Sponsorship tiers, branding opportunities, and exhibition information.",
 };
 
 export default function SponsorsPage() {

@@ -3,6 +3,7 @@ import { tracks } from "@/config/site";
 
 export const metadata = {
   title: "Tracks",
+  description: "ICAMI 2026 conference tracks. Four thematic areas: trustworthy AI, generative intelligence, healthcare AI, and industry applications.",
 };
 
 export default function TracksPage() {

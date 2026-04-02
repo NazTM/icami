@@ -4,6 +4,7 @@ import { importantDates } from "@/config/site";
 
 export const metadata = {
   title: "Important Dates",
+  description: "ICAMI 2026 important dates. Paper submission deadline July 2026, notification October 2026, conference December 2026.",
 };
 
 export default function ImportantDatesPage() {

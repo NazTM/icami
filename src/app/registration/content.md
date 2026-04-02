@@ -2,6 +2,7 @@
 title: "Registration"
 eyebrow: "Attend"
 metaTitle: "Registration"
+description: "Register for ICAMI 2026. Author, student, and listener categories with planned rates and payment instructions."
 ---
 
 Registration categories (author, student, listener) and fees will be posted here. Early-bird deadlines and cancellation policies will be included alongside payment instructions.

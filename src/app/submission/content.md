@@ -2,6 +2,7 @@
 title: "Submission"
 eyebrow: "Authors"
 metaTitle: "Submission"
+description: "Submission guidelines for ICAMI 2026. Paper format, double-blind policy, templates, and the submission portal link."
 ---
 
 The submission system URL (e.g., EasyChair or Microsoft CMT) will be published here when submissions open. Until then, please prepare your **manuscript** according to the call for papers and official templates.

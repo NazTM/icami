@@ -3,6 +3,7 @@ import { RegistrationFeeCalculator } from "@/components/registration/fees-calcul
 
 export const metadata = {
   title: "Registration fees",
+  description: "ICAMI 2026 registration fees and interactive calculator. Base fee USD 500 with Research4Life and IEEE member discounts.",
 };
 
 export default function RegistrationFeesPage() {

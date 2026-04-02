@@ -4,6 +4,7 @@ import { getAnnouncements } from "@/lib/announcements";
 
 export const metadata = {
   title: "Announcements",
+  description: "Latest announcements and updates from ICAMI 2026. Conference news, deadlines, and important notices.",
 };
 
 export default async function AnnouncementsPage() {

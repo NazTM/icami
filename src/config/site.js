@@ -4,6 +4,7 @@
  */
 
 export const site = {
+  url: "https://icami.net",
   shortTitle: "ICAMI 2026",
   fullTitle: "International Conference on Advanced Machine Intelligence",
   location: "Multimedia University (MMU), Malaysia",

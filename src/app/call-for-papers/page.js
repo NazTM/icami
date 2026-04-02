@@ -5,6 +5,7 @@ import { tracks } from "@/config/site";
 
 export const metadata = {
   title: "Call for Papers",
+  description: "Call for papers for ICAMI 2026. Four tracks in advanced machine intelligence. IEEE format, double-blind review. Submit by July 2026.",
 };
 
 export default function CallForPapersPage() {

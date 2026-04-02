@@ -2,6 +2,7 @@
 title: "Presentation guidelines"
 eyebrow: "Authors"
 metaTitle: "Presentation guidelines"
+description: "Presentation guidelines for ICAMI 2026 presenters. Oral, poster, and hybrid session requirements and best practices."
 ---
 
 Presenters at ICAMI 2026 are expected to deliver clear, time-respecting talks that respect double-blind or identification rules as applicable to each session type. Detailed slot lengths and room logistics will be published with the final program.

@@ -4,6 +4,7 @@ import { keynotes } from "@/config/site";
 
 export const metadata = {
   title: "Keynotes",
+  description: "Keynote speakers at ICAMI 2026. Invited talks from leading researchers in advanced machine intelligence.",
 };
 
 export default function KeynotesPage() {

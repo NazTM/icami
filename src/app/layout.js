@@ -35,13 +35,43 @@ const bangers = Bangers({
 });
 
 export const metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.shortTitle} — ${site.fullTitle}`,
     template: `%s — ${site.shortTitle}`,
   },
   description: `${site.fullTitle}. ${site.location}. ${site.tagline}`,
   icons: {
-    icon: "/favicon.png",
+    icon: "/icami.png",
+  },
+  openGraph: {
+    type: "website",
+    siteName: site.shortTitle,
+    locale: "en_US",
+    url: site.url,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.shortTitle} — ${site.fullTitle}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

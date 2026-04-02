@@ -4,6 +4,7 @@ import { site } from "@/config/site";
 
 export const metadata = {
   title: "Venue",
+  description: "ICAMI 2026 venue at Multimedia University (MMU), Malaysia. Location details, travel tips, and accommodation information.",
 };
 
 export default function VenuePage() {

@@ -2,6 +2,7 @@
 title: "Program"
 eyebrow: "Schedule"
 metaTitle: "Program"
+description: "ICAMI 2026 conference program and schedule. Sessions, keynotes, poster slots, and breaks across all conference days."
 ---
 
 The detailed schedule -- including sessions, breaks, and poster slots -- will appear after the acceptance phase. A high-level overview of the conference days will be published first, followed by the full timetable.
