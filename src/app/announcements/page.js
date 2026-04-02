@@ -11,12 +11,6 @@ export default async function AnnouncementsPage() {
 
   return (
     <DocumentPage title="Announcements" eyebrow="Updates">
-      <p>
-        Official updates from the ICAMI 2026 organizing team. Some announcements
-        open a full internal detail page, while others may redirect directly to a
-        related page or external resource.
-      </p>
-
       <ul className="not-prose mt-10 grid gap-5 md:grid-cols-2">
         {announcements.map((a) => {
           const isExternal = a.readMore.external;
@@ -32,7 +26,9 @@ export default async function AnnouncementsPage() {
           return (
             <li key={a.slug} className="icami-card flex flex-col p-7">
               <p className="icami-mono-eyebrow !text-slate-500">Announcement</p>
-              <h2 className="mt-3 line-clamp-2 text-xl tracking-wide text-icami-text">{a.title}</h2>
+              <h2 className="mt-3 line-clamp-2 text-xl tracking-wide text-icami-text">
+                {a.title}
+              </h2>
               {a.date ? (
                 <p className="mt-2 text-xs uppercase tracking-[0.14em] text-slate-500">
                   {new Date(a.date).toLocaleDateString("en-US", {
@@ -42,7 +38,9 @@ export default async function AnnouncementsPage() {
                   })}
                 </p>
               ) : null}
-              <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-600">{a.excerpt}</p>
+              <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-600">
+                {a.excerpt}
+              </p>
               <div className="mt-auto pt-5">
                 <Cmp
                   {...props}

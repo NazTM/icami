@@ -1,17 +1,12 @@
-import { DocumentPage } from "@/components/page/document-page";
+import { loadContent } from "@/lib/load-content";
+import { ContentPage } from "@/components/page/content-page";
 
-export const metadata = {
-  title: "Workshops & Tutorials",
-};
+export async function generateMetadata() {
+  const { metaTitle, title } = await loadContent("workshops");
+  return { title: metaTitle || title };
+}
 
-export default function WorkshopsPage() {
-  return (
-    <DocumentPage title="Workshops & tutorials" eyebrow="Program">
-      <p>
-        Co-located workshops and tutorials may be scheduled before or alongside
-        the main conference. Calls for workshop proposals and tutorial
-        expressions of interest will be announced separately.
-      </p>
-    </DocumentPage>
-  );
+export default async function WorkshopsPage() {
+  const { title, eyebrow, body } = await loadContent("workshops");
+  return <ContentPage title={title} eyebrow={eyebrow}>{body}</ContentPage>;
 }

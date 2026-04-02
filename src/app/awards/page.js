@@ -1,17 +1,12 @@
-import { DocumentPage } from "@/components/page/document-page";
+import { loadContent } from "@/lib/load-content";
+import { ContentPage } from "@/components/page/content-page";
 
-export const metadata = {
-  title: "Awards",
-};
+export async function generateMetadata() {
+  const { metaTitle, title } = await loadContent("awards");
+  return { title: metaTitle || title };
+}
 
-export default function AwardsPage() {
-  return (
-    <DocumentPage title="Awards" eyebrow="Recognition">
-      <p>
-        ICAMI may recognize outstanding contributions through awards such as Best
-        Paper, Best Student Paper, and Best Reviewer. Eligibility criteria and
-        selection processes will be published before the conference.
-      </p>
-    </DocumentPage>
-  );
+export default async function AwardsPage() {
+  const { title, eyebrow, body } = await loadContent("awards");
+  return <ContentPage title={title} eyebrow={eyebrow}>{body}</ContentPage>;
 }

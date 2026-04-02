@@ -1,16 +1,12 @@
-import { DocumentPage } from "@/components/page/document-page";
+import { loadContent } from "@/lib/load-content";
+import { ContentPage } from "@/components/page/content-page";
 
-export const metadata = {
-  title: "Accepted Papers",
-};
+export async function generateMetadata() {
+  const { metaTitle, title } = await loadContent("accepted-papers");
+  return { title: metaTitle || title };
+}
 
-export default function AcceptedPapersPage() {
-  return (
-    <DocumentPage title="Accepted papers" eyebrow="Proceedings">
-      <p>
-        The list of accepted papers will be published after notifications are
-        sent to authors. Each entry will include title, authors, and track.
-      </p>
-    </DocumentPage>
-  );
+export default async function AcceptedPapersPage() {
+  const { title, eyebrow, body } = await loadContent("accepted-papers");
+  return <ContentPage title={title} eyebrow={eyebrow}>{body}</ContentPage>;
 }
