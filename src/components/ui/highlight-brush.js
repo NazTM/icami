@@ -9,14 +9,23 @@
  * <p>We focus on <HighlightBrush>real-world impact</HighlightBrush> in deployment.</p>
  */
 const VARIANT_CLASS = {
-  amber: "icami-highlight-brush icami-highlight-brush--amber",
-  sky: "icami-highlight-brush icami-highlight-brush--sky",
-  gold: "icami-highlight-brush icami-highlight-brush--gold",
-  rose: "icami-highlight-brush icami-highlight-brush--rose",
-  onDark: "icami-highlight-brush icami-highlight-brush--on-dark",
+  amber: "",
+  sky: "",
+  gold: "",
+  rose: "",
+  onDark: "",
 };
 
-export function HighlightBrush({ as: Comp = "span", variant = "amber", className = "", children }) {
+export function HighlightBrush({
+  as: Comp = "span",
+  variant = "amber",
+  className = "",
+  children,
+}) {
   const base = VARIANT_CLASS[variant] ?? VARIANT_CLASS.amber;
-  return <Comp className={[base, className].filter(Boolean).join(" ")}>{children}</Comp>;
+  return (
+    <Comp className={[base, className].filter(Boolean).join(" ")}>
+      {children}
+    </Comp>
+  );
 }
