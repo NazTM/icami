@@ -31,7 +31,7 @@ export function HeroSection() {
         alt=""
         fill
         priority
-        sizes="100vw"
+        sizes="90vw"
         className="pointer-events-none absolute inset-0 z-0 object-cover"
       />
       <div
