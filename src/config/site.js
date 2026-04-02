@@ -28,24 +28,29 @@ export const site = {
 /** ICAMI 2026 timeline. */
 export const importantDates = [
   {
-    label: "Paper submission deadline",
+    label: "Submission deadline",
     date: "July 2026",
     highlight: true,
+    linebreak: true
   },
   {
     label: "Notification of acceptance",
     date: "October 2026",
     highlight: true,
+    linebreak: false
+      
   },
   {
     label: "Camera-ready deadline",
     date: "November 2026",
     highlight: true,
+    linebreak: false
   },
   {
     label: "Conference dates",
     date: "December 2026",
     highlight: true,
+    linebreak: false
   },
 ];
 

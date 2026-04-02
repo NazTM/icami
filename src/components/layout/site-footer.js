@@ -728,10 +728,10 @@ export function SiteFooter() {
         />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,51,160,0.12),transparent)]" />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:grid-cols-3 sm:px-10 md:px-14">
-          <div>
-            <p className="font-heading text-xl tracking-[0.12em] text-white">
-              {site.shortTitle}
-            </p>
+          <div className="">
+            <div className="font-heading text-xl tracking-[0.12em] text-white relative mb-32">
+              <Image src="https://cdn.icami.net/icami_nav_dark.svg" alt={site.shortTitle} width={300} height={24} className="absolute -left-[.64rem] top-0" />
+            </div>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-zinc-500">
               {site.fullTitle}
             </p>
@@ -744,7 +744,7 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <p className="icami-mono-eyebrow text-zinc-500">Quick links</p>
+            <p className="icami-mono-eyebrow text-zinc-100">Quick links</p>
             <ul className="mt-5 space-y-3 text-sm">
               {footerQuick.map((item) => (
                 <li key={item.href}>
@@ -769,7 +769,7 @@ export function SiteFooter() {
             <div className="mt-8 flex flex-wrap gap-6 text-sm">
               <a
                 href={site.social.linkedin}
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-zinc-400 transition-colors hover:text-white"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -777,19 +777,19 @@ export function SiteFooter() {
               </a>
               <a
                 href={site.social.twitter}
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-zinc-400 transition-colors hover:text-white"
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 X / Twitter
               </a>
             </div>
-            <ul className="mt-8 space-y-2 text-xs text-zinc-600">
+            <ul className="mt-8 space-y-2 text-xs text-zinc-400">
               {navMore.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="transition-colors hover:text-zinc-400"
+                    className="transition-colors hover:text-zinc-100 hover:underline hover:underline-offset-4"
                   >
                     {item.label}
                   </Link>
@@ -820,9 +820,9 @@ export function SiteFooter() {
       />
       <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-3 sm:px-10 md:px-14">
         <div>
-          <p className="font-heading text-xl tracking-[0.12em] text-slate-900">
-            {site.shortTitle}
-          </p>
+          <div className="font-heading text-xl tracking-[0.12em] text-white relative mb-32">
+              <Image src="https://cdn.icami.net/icami_nav.svg" alt={site.shortTitle} width={300} height={24} className="absolute -left-[.64rem] top-0" />
+            </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-600">
             {site.fullTitle}
           </p>
@@ -872,7 +872,7 @@ export function SiteFooter() {
           <ul className="mt-8 space-y-2 text-xs text-slate-500">
             {navMore.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-slate-800">
+                <Link href={item.href} className="hover:text-slate-800 hover:underline hover:underline-offset-4 transition-colors">
                   {item.label}
                 </Link>
               </li>
